@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+ <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>
+       Sell on eBay
+    </title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="/angularjs/sell.js"></script>
+</head>
+
+
+</head>
+<body  style="background-color: #eeeeee;" ng-app="sell" ng-controller="sell">
+<div class="row" style="padding-top: 20px;"><div class=" col-md-1"></div>
+<div class="col-md-10">
+<img alt="" src="/img/logoEbayNew.png">
+</div></div>
+<div class="col-md-1"></div>
+<div class="panel col-md-10" style="background-color: white;border-color:black;margin-top: 10px;">
+<div class="col-md-1"></div>
+<div class="panel col-md-12" style="background-color: white;border-color:black;margin-top: 20px;">
+
+<div class="row">
+<div class="col-md-12"><b>Describe your item</b></div>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-4" style="padding-top: 10px;margin-bottom: 10px;">
+Title :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="text" ng-model="title"></input></div>
+</div>
+
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Condition :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><select ng-model="condition">
+<option>New with tags</option>
+<option>New without tags</option>
+<option>New with defects</option>
+<option>Old</option>
+</select></div></div>
+
+<div class="row">
+<div class="col-md-4" style="margin-top: 10px;margin-bottom: 10px;">
+Item specifics :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;">Brand:</div>
+</div>
+
+<div class="row">
+<div class="col-md-4" style="margin-top: 10px;margin-bottom: 10px;">
+</div>
+<div class="col-md-6" style="padding-top:0px;margin-bottom: 10px;"><input type="text" ng-model="brand" placeholder="Product Brand"></div>
+</div>
+
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Details :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="text" ng-model="details"></div>
+</div>
+
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Size :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="text" ng-model="size"></div>
+</div>
+
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Category :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;">
+<select ng-model="category">
+<option ng-repeat="x in itinerary"> {{x.name}}</option>
+</select>
+</div>
+</div>
+
+</div>
+
+<div class="panel col-md-12" style="background-color: white;border-color:grey;margin-top: 20px;">
+<div class="row">
+<div class="col-md-12"><b>Select format and price</b></div>
+</div>
+<hr>
+
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Listing format </div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;">
+<div class="col-md-4">
+<button class="btn" style="width:120px;" ng-click="onauction();">Auction</button></div>
+<div class="col-md-4">
+<button class="btn" style="width:120px;" ng-click="onfixed();">Fixed price</button></div>
+</div>
+</div>
+
+<div ng-hide="auction">
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Starting price :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="number" ng-model="starting" placeholder="0"></div>
+</div>
+</div>
+
+<div ng-hide="fixed">
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Price :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="number" ng-model="price" placeholder="0"></div>
+</div>
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Quantity :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="number" min="1" ng-model="quantity"></div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-4"  style="margin-top: 10px;margin-bottom: 10px;">
+Listing duration :</div>
+<div class="col-md-6" style="padding-top: 10px;margin-bottom: 10px;"><input type="text" disabled="disabled" value="4 days"></input></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-8"></div>
+<div class="col-md-3">
+<button type="button" class="btn btn-primary" ng-click="addprod();">List It</button>
+</div>
+</body>
+</html>

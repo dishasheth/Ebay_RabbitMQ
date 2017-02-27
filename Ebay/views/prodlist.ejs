@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+ <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>
+       Sell on eBay
+    </title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="/angularjs/prodlist.js"></script>
+</head>
+
+
+</head>
+<body  style="background-color: #eeeeee;" ng-app="sessioncheck" ng-controller="sessioncheck">
+
+
+     <div id="top"  style="background-color:white;margin-top:-10px;">
+        <div class="container">
+         <div class="col-md-10">
+                <ul class="menu" >
+                     <li>
+                     <div ng-hide="notlogin">
+                     <label>Hi!</label>
+                     <a href='login' style="color:#00509d;">Sign In</a>
+                     <label>or</label>
+                     <a href='login' style="color:#00509d;">Register</a></div>
+                     <div ng-hide="login">
+                     <label>Hi!</label>
+                     <label> <a href='myebay' style="color:#00509d;">{{fname}}</a></label>
+                     <a href='logout' style="color:#00509d;">Logout</a>
+                     
+                     </div>
+                    </li><li><a href="register.html">Daily Deals</a>
+                    </li>
+                    <li><a href="contact.html">Gift Cards</a>
+                    </li>
+                    <li><a href='sell'>Sell</a>
+                    </li>
+                    <li><a href="#">Help & Contact</a>
+                    </li>
+                   
+                  
+ <li><a href="#"><img src="/img/scary.png" style="width:140px;height:30px;"></a></li>
+ 
+    <li class="dropdown">
+     <a href='myebay' class="dropdown-toggle" data-toggle="dropdown">My eBay</a>
+      <ul class="dropdown-menu">
+       <li><a href='myebay'>Account</a></li>
+       <li><a href='myebay'>Purchase History</a></li>
+       <li><a href='myebay'>Sell Items</a></li>
+      </ul>
+     </li>
+   <li><a href="#">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </a>
+</li>
+ <li><a href="#">
+          <span class="glyphicon glyphicon-bell"></span>
+        </a>
+</li>
+
+                </ul>
+            </div>
+         </div>
+     
+
+    </div>
+
+    <!-- *** TOP BAR END ***  -->
+    
+     <div style="background-color: #eee">
+    <div class="container" style="margin-top: -8px;">
+    <div class="row">
+    <div class="col-md-2"> 
+    <img src="/img/logo.png" style="width:170px;height:68px;margin-top:5px"></img>
+    </div>
+    <div class="col-md-1">
+    <div class="dropdown" >
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background:transparent; margin-top: 18px; width:100px;border: 0px;margin-left:-20px;">All Category
+    <span class="caret"></span></button>
+   <!--  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Antiques</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Art</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Clothes</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+    </ul>-->
+   <!--  <div class=" collapse navbar-collapse">
+   <ul class="nav navbar-nav">
+    	<li class="dropdown mega-dropdown">
+							<button id="sbc" class="dropdown-toggle" style=" width: 100px; height: 15px; margin-left: 0px; border: none;"
+								data-toggle="dropdown">Shop by Category
+								<i id="gh-shop-ei" class="gh-sprRetina"></i></button> -->
+								<ul class="dropdown-menu mega-dropdown-menu row">
+									<li class="col-md-12">
+									<table id="sbcats">
+									
+									</table>
+									</li></ul>
+    
+    </div> 
+    </div>
+    <div class="col-md-5">
+    <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="searchbar" style="width: 483px;margin-left: -10px;margin-top: 10px;" placeholder="Search.." autofocus="autofocus" />
+                        </div> 
+    </form>
+    </div>
+    <div class=" col-md-2">
+    <select style="background-color: white; margin-top: 18px; width:170px;height:34px;" ng-model="cat">
+    <option value="All Categories" selected="selected">All Categories</option>
+   <option ng-repeat="x in itinerary"> {{x.name}}</option>
+</select> 
+   
+   
+  </div>
+  <div class="col-md-1">
+   <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <button type="button" ng-click="getsearch()" class="btn btn-primary" style="background-color: #00509d;width:100px;margin-left:-25px;margin-top: 10px;">SEARCH</button>
+                        </div> </form>
+  </div>
+ <div class="col-md-1">
+  <label style=" margin-top: 25px;margin-left: 0px;"><a href=# style="color:black;">Advanced</a></label>
+  </div> </form>
+  </div>
+
+  
+         </ul>
+  </div>
+
+</div>
+
+
+<div class="row">
+<div class="col-md-2"></div>
+
+<div class=" panel col-md-6">
+     <div class="col-md-3"  style="text-align: center"><b>PRODUCT ID</b></div>
+    <div class="col-md-3" style="text-align: center"><b>PRODUCT NAME</b></div>
+    <div class="col-md-3" style="text-align: center"><b>PRODUCT COST</b></div>
+    <div class="col-md-3" style="text-align: center"><b>Get more details..</b></div>
+ </div></div>
+ 
+ 
+
+ 
+
+ 
+<div class="panel" ng-repeat="x in ids">
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-6">
+ <div class="col-md-3" style="text-align: center">{{x._id}}</div>
+    <div class="col-md-3" style="text-align: center">{{x.prod_name}}</div>
+    <div class="col-md-3" style="text-align: center">{{x.prod_cost}}</div>
+   <div  class="col-md-3" style="text-align: center"><a href="/getItem?prod={{x.prod_name}}"> More details..</a></div>
+
+</div>
+ </div></div>
+
+
+
+</body></html>

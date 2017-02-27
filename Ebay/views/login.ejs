@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign in or Register | eBay</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+   <script src="angularjs/checklogin.js"></script>
+  <style>
+  
+  input.ng-invalid.ng-dirty{
+  
+  border: 1px solid red;
+  }
+  
+  </style>
+</head>
+<body style="background-color: #eeeeee;" ng-app="login" ng-controller="mylogin">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4" style="margin-top: 30px;margin-bottom: 30px;">
+<img src="img/logo.png" style="width: 150px;height:60px;"></img>
+</div></div>
+
+  <ul class="nav nav-tabs" >
+  
+    <li class="active" style="width:50%;"><a data-toggle="tab" href="#home"><span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;Sign In</a></li>
+    <li style="width:50%;"><a data-toggle="tab" href="#menu1"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Register</a></li>
+   </ul>
+   <form id="myform" name="myform" novalidate>
+   
+   <div class="col-md-12" style="background-color:white">
+  <div class="tab-content" style="width:100%">
+    <div id="home" class="tab-pane fade in active" >
+    
+     <div class="col-md-12" style="margin-top: 20px;">
+    <div class="alert alert-danger" ng-hide="invalid_login">
+						<strong>Oops! Crendentials don't match.</strong>
+					</div></div>
+    
+    
+    
+     <div class="col-md-12" style="margin-top: 20px;">
+    <input type="email" class="form-control" name="username" placeholder="Email or username" aria-describedby="basic-addon2" ng-model="username" required>
+    <span ng-show="myform.username.$dirty && myform.username.$invalid" style="color:red">Invalid email</span>
+    </div>
+    <div class="col-md-12"  style="margin-top: 20px;" >
+     <input type="password" class="form-control" name="password" placeholder="Password" aria-describedby="basic-addon2" ng-minlength=5 ng-model="password" required>
+     <span ng-show="myform.password.$dirty && myform.password.$invalid" style="color:red">Too short</span>
+     </div>
+     <div class="col-md-12"  style="margin-top: 20px;">
+     <button type="button" ng-disabled="myform.username.$invalid || myform.password.$invalid" class="btn btn-primary"  style="background-color: blue;color:white;width:100%;" ng-click="submit();">Sign In</button>
+    </div>
+    <div class="col-md-6"  style="margin-top: 20px;">
+     <label><input type="checkbox" value="">Stay signed in</label>
+    </div>
+    <div class="col-md-6"  style="margin-top: 20px;color:blue;float:right;">
+     <a href=#>Forgot your password?</a>
+    </div>
+   <div class="col-md-12"  style="margin-top: 20px;">
+   <label>Using a public or shared device? Uncheck to protect your account.</label>
+   </div>
+    </div>
+
+
+<!-- After Signin Page -->
+
+    <div id="menu1" class="tab-pane fade">
+       <div class="col-md-12" style="margin-top: 20px;">
+    <input type="email" class="form-control" name="email" placeholder="Email" aria-describedby="basic-addon2" ng-model="email" required>
+     <span ng-show="myform.email.$dirty && myform.email.$invalid" style="color:red"><small>Please enter a valid email address</small></span>
+    </div>
+    <div class="col-md-12" style="margin-top: 20px;">
+    <input type="email" class="form-control" name="mail2" placeholder="Reenter email" aria-describedby="basic-addon2" ng-model="mail2" required>
+     <span ng-show="myform.mail2.$dirty && myform.mail2.$invalid" style="color:red"><small>Looks like these email addresses don't match</small></span>
+    </div>
+    <div class="col-md-12"  style="margin-top: 20px;">
+     <input type="password" class="form-control" name="password1" placeholder="Password" aria-describedby="basic-addon2" ng-model="password" ng-minlength=6 required>
+      <span ng-show="myform.password1.$dirty && myform.password1.$invalid" style="color:red"><small>Please select a password that is atleast 6 characters long and a combination
+      of atleast 2 letters, numbers and special characters.</small></span>
+     </div>
+     <div class="col-md-6" style="margin-top: 20px;">
+    <input type="text" class="form-control" name="fname" placeholder="First name" aria-describedby="basic-addon2" ng-model="fname" required>
+     <!--  <span ng-show="myform.fname.$dirty && myform.fname.$invalid" style="color:red">Invalid email</span> -->
+    </div>
+    <div class="col-md-6" style="margin-top: 20px;">
+    <input type="text" class="form-control" name="lname" placeholder="Last name" aria-describedby="basic-addon2" ng-model="lname" required>
+     <span ng-show="myform.lname.$dirty && myform.lname.$invalid" style="color:red">Required</span>
+    </div>
+     <div class="col-md-12" style="margin-top: 20px;">
+    <input type="text" class="form-control" name="phone" placeholder="Mobile phone" aria-describedby="basic-addon2" ng-model="phn" required>
+     <span ng-show="myform.phone.$dirty && myform.phone.$invalid" style="color:red">Required</span>
+    </div>
+    <div class="col-md-12" style="margin-top: 20px;">
+	<label>By Registering, you agree that you've read and accepted our User Agreement, you're at least 18 years old, and you consent to our Privacy Notice and receiving marketing communications from us.</label>
+    </div>
+     <div class="col-md-12"  style="margin-top: 20px;">
+     <button type="button" ng-disabled="myform.email.$invalid || myform.password.$invalid || myform.fname.$invalid || myform.lname.$invalid || myform.phone.$invalid"  my class="btn btn-primary" style="background-color: blue;color:white;width:100%;" ng-click="register();">Register</button>
+    </div>
+     </div>
+    </div>
+  </div>
+  </form>
+</div>
+<div class="col-md-4"></div>
+</body>
+</html>
